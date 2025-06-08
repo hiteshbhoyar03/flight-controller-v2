@@ -1,8 +1,0 @@
-Record=TopLevelDocument|FileName=Baro_Mag.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=CoProcessor.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=Debug.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=GPS.SchDoc|SheetNumber=6
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=IMU.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=MainProcessor.SchDoc|SheetNumber=1
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=Ports and Power.SchDoc|SheetNumber=8
-Record=NoMainPathDocument|SourceDocument=Baro_Mag.SchDoc|FileName=Pwm.SchDoc|SheetNumber=7
