@@ -1,0 +1,17 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:578:26:LL_SPI_IsEnabled	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:929:22:LL_SPI_SetInternalSSLevel	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:1216:26:LL_SPI_GetNSSPolarity	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:2530:22:LL_SPI_SetCRCPolynomial	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2056:22:LL_APB1_GRP1_ForceReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2118:22:LL_APB1_GRP1_ReleaseReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2622:22:LL_APB2_GRP1_ForceReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2668:22:LL_APB2_GRP1_ReleaseReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2942:22:LL_APB4_GRP1_ForceReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2982:22:LL_APB4_GRP1_ReleaseReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:239:13:LL_SPI_DeInit	24	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:337:13:LL_SPI_Init	32	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:430:6:LL_SPI_StructInit	16	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:550:13:LL_I2S_DeInit	16	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:568:13:LL_I2S_Init	48	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:701:6:LL_I2S_StructInit	16	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_spi.c:724:6:LL_I2S_ConfigPrescaler	24	static

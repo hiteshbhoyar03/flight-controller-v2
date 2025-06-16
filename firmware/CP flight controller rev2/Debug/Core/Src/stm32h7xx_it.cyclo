@@ -1,0 +1,16 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:2998:26:LL_USART_IsActiveFlag_RXNE_RXFNE	2
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:3024:26:LL_USART_IsActiveFlag_TXE_TXFNF	2
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:4252:25:LL_USART_ReceiveData8	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:4275:22:LL_USART_TransmitData8	1
+../Core/Src/stm32h7xx_it.c:86:6:NMI_Handler	1
+../Core/Src/stm32h7xx_it.c:101:6:HardFault_Handler	1
+../Core/Src/stm32h7xx_it.c:116:6:MemManage_Handler	1
+../Core/Src/stm32h7xx_it.c:131:6:BusFault_Handler	1
+../Core/Src/stm32h7xx_it.c:146:6:UsageFault_Handler	1
+../Core/Src/stm32h7xx_it.c:161:6:SVC_Handler	1
+../Core/Src/stm32h7xx_it.c:174:6:DebugMon_Handler	1
+../Core/Src/stm32h7xx_it.c:187:6:PendSV_Handler	1
+../Core/Src/stm32h7xx_it.c:200:6:SysTick_Handler	1
+../Core/Src/stm32h7xx_it.c:221:6:USART2_IRQHandler	3
+../Core/Src/stm32h7xx_it.c:246:6:USART3_IRQHandler	1
+../Core/Src/stm32h7xx_it.c:259:6:USART6_IRQHandler	8

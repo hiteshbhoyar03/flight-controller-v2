@@ -1,0 +1,12 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h:2895:22:LL_RCC_SetClockSource	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h:3273:22:LL_RCC_SetSPIClockSource	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:1384:22:LL_AHB4_GRP1_EnableClock	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:1862:22:LL_APB1_GRP1_EnableClock	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2480:22:LL_APB2_GRP1_EnableClock	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:2814:22:LL_APB4_GRP1_EnableClock	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:1116:22:LL_SPI_SetStandard	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:1466:22:LL_SPI_SetFIFOThreshold	1
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:1655:22:LL_SPI_EnableNSSPulseMgt	1
+../Core/Src/spi.c:28:6:MX_SPI1_Init	1
+../Core/Src/spi.c:81:6:MX_SPI3_Init	1
+../Core/Src/spi.c:134:6:MX_SPI6_Init	1

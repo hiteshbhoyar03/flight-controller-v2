@@ -1,0 +1,7 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:3024:26:LL_USART_IsActiveFlag_TXE_TXFNF	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:4275:22:LL_USART_TransmitData8	16	static
+../Core/Src/M9N.c:39:6:M9N_TransmitData_USART6	24	static
+../Core/Src/M9N.c:48:6:UBX_NAV_POSLLH_Parsing	16	static
+../Core/Src/M9N.c:66:15:UBX_Check_CHKSUM	24	static
+../Core/Src/M9N.c:79:6:M9N_Initialization	8	static
+../Core/Src/M9N.c:99:6:M9N_USART6_Initialization	4	static

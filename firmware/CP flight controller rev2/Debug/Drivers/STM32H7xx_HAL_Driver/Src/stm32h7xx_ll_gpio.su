@@ -1,0 +1,11 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:278:22:LL_GPIO_SetPinMode	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:346:22:LL_GPIO_SetPinOutputType	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:417:22:LL_GPIO_SetPinSpeed	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:486:22:LL_GPIO_SetPinPull	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:557:22:LL_GPIO_SetAFPin_0_7	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:634:22:LL_GPIO_SetAFPin_8_15	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:1522:22:LL_AHB4_GRP1_ForceReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:1564:22:LL_AHB4_GRP1_ReleaseReset	16	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c:104:13:LL_GPIO_DeInit	24	static
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c:200:13:LL_GPIO_Init	40	static,ignoring_inline_asm
+../Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_gpio.c:274:6:LL_GPIO_StructInit	16	static

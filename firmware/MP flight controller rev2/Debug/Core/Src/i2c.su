@@ -1,0 +1,5 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h:2895:22:LL_RCC_SetClockSource	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_rcc.h:2965:22:LL_RCC_SetI2CClockSource	16	static
+../Core/Src/i2c.c:30:6:MX_I2C1_Init	8	static
+../Core/Src/i2c.c:73:6:HAL_I2C_MspInit	48	static
+../Core/Src/i2c.c:104:6:HAL_I2C_MspDeInit	16	static

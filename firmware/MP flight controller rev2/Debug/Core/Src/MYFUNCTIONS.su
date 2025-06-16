@@ -1,0 +1,11 @@
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:1523:22:LL_TIM_EnableCounter	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:2058:22:LL_TIM_CC_EnableChannel	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:2087:22:LL_TIM_CC_DisableChannel	16	static
+../Core/Src/MYFUNCTIONS.c:24:5:Is_Data_Received	8	static
+../Core/Src/MYFUNCTIONS.c:63:5:Is_Throttle_Min	8	static
+../Core/Src/MYFUNCTIONS.c:107:6:Calibrate_ESC	16	static
+../Core/Src/MYFUNCTIONS.c:158:6:buzzer_Data_Not_Received	8	static
+../Core/Src/MYFUNCTIONS.c:166:6:buzzer_Calibration_Started	8	static
+../Core/Src/MYFUNCTIONS.c:179:6:buzzer_Calibration_Done	8	static
+../Core/Src/MYFUNCTIONS.c:188:6:buzzer_Throttel_Safety	8	static
+../Core/Src/MYFUNCTIONS.c:196:6:buzzer_All_Set	8	static
