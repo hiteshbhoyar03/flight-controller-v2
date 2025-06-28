@@ -154,6 +154,11 @@ typedef struct _BMI088{
 	float gyro_z;
 
 	uint32_t sensortime;
+
+	float roll;
+	float pitch;
+	float yaw;
+
 }Struct_BMI088;
 
 extern Struct_BMI088 BMI088;

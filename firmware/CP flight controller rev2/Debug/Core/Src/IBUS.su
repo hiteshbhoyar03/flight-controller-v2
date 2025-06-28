@@ -1,0 +1,4 @@
+../Core/Src/IBUS.c:13:15:IBUS_Check_CHKSUM	24	static
+../Core/Src/IBUS.c:25:6:IBUS_Parsing	16	static
+../Core/Src/IBUS.c:42:15:IBUS_isActiveFailsafe	16	static
+../Core/Src/IBUS.c:47:6:IBUS_UART_Initialization	4	static

@@ -189,6 +189,11 @@ typedef struct _ICM45686{
 	float gyro_y;
 	float gyro_z;
 	float temperature;
+
+	float roll;
+	float pitch;
+	float yaw;
+
 }Struct_ICM45686;
 
 extern Struct_ICM45686 ICM45686;

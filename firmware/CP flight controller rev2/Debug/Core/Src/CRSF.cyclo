@@ -1,0 +1,4 @@
+../Core/Src/CRSF.c:19:15:CRSF_Check_crc8	2
+../Core/Src/CRSF.c:53:6:CRSF_Parsing	2
+../Core/Src/CRSF.c:83:15:CRSF_isActiveFailsafe	1
+../Core/Src/CRSF.c:92:6:CRSF_UART_Initialization	1

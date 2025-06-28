@@ -1,0 +1,9 @@
+../Drivers/CMSIS/Include/core_cm7.h:1890:26:__NVIC_GetPriorityGrouping	4	static
+../Drivers/CMSIS/Include/core_cm7.h:1902:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Drivers/CMSIS/Include/core_cm7.h:2032:22:__NVIC_SetPriority	16	static
+../Drivers/CMSIS/Include/core_cm7.h:2079:26:NVIC_EncodePriority	40	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_bus.h:1862:22:LL_APB1_GRP1_EnableClock	24	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:1703:22:LL_TIM_EnableARRPreload	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:3348:22:LL_TIM_SetTriggerOutput	16	static
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:3457:22:LL_TIM_DisableMasterSlaveMode	16	static
+../Core/Src/tim.c:28:6:MX_TIM7_Init	32	static

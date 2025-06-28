@@ -1,0 +1,3 @@
+../Core/Src/SBUS.c:19:6:SBUS_Parsing	16	static
+../Core/Src/SBUS.c:46:15:SBUS_isActiveFailsafe	16	static
+../Core/Src/SBUS.c:51:6:SBUS_UART_Initialization	4	static

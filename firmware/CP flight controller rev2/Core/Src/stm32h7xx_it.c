@@ -31,10 +31,12 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define NMEA_PROTO 0
-#define UBX_PROTO  1
-#define GPS1_PROTO UBX_PROTO			// SELECT GPS PROTOCOL
-#define GPS2_PROTO UBX_PROTO			// SELECT GPS PROTOCOL
+//#define NMEA_PROTO  0
+#define UBX_PROTO   1
+
+#define IBUS_PROTO 	1
+#define CRSF_PROTO  0
+#define SBUS_PROTO  0
 
 /* USER CODE END PD */
 
@@ -43,21 +45,39 @@
 #define UBX_SYNC_CHAR_1 				0xB5	// Every Message starts with 2 Bytes: 0xB5 0x62
 #define UBX_SYNC_CHAR_2 				0x62
 
+#define IBUS_PROTOCOL_LENGTH 			0x20 	// Length of packet
+#define IBUS_PROTOCOL_COMMAND40			0x40	// Command to set servo or motor speed is always 0x40
+#define CRSF_ADDRESS_FLIGHT_CONTROLLER 	0xC8
+#define CRSF_FRAME_LENGTH 				24 		// length of type + payload + crc
+#define SBUS_HEADER 					0x0F
+
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-uint8_t usart2_rx_flag = 0;		// DEBUG
-uint8_t usart2_rx_data = 0;		// DEBUG
+uint8_t usart2_rx_flag = 0;					// DEBUG
+uint8_t usart2_rx_data = 0;					// DEBUG
 
-uint8_t usart6_rx_flag = 0;		// GPS1
-uint8_t usart6_rx_data = 0;		// GPS1
+//uint8_t usart3_rx_flag;						// Uart CP-MP
+//uint8_t usart3_rx_data;						// Uart CP-MP
 
-//uint8_t usart3_rx_flag = 0;		// RECEIVER
-//uint8_t usart3_rx_data = 0;		// RECEIVER
+uint8_t uart4_rx_flag = 0;					// RECEIVER
+uint8_t uart4_rx_data = 0;					// RECEIVER
+
+uint8_t usart6_rx_flag = 0;					// GPS1
+uint8_t usart6_rx_data = 0;					// GPS1
 
 uint8_t gps_ubx_rx_buffer[36];				// GPS1 BUFFER
 uint8_t gps_ubx_rx_complete_flag = 0;		// GPS1 COMPLETE FLAG
+
+uint8_t ibus_rx_buffer[32];					// FLYSKY IBUS BUFFER
+uint8_t ibus_rx_complete_flag = 0;			// FLYSKY IBUS COMPLETE FLAG
+uint8_t crsf_rx_buffer[26];					// CRSF BUFFER
+uint8_t crsf_rx_complete_flag = 0;			// CRSF COMPLETE FLAG
+uint8_t sbus_rx_buffer[25];					// SBUS BUFFER
+uint8_t sbus_rx_complete_flag = 0;			// SBUS COMPLETE FLAG
+
+uint8_t tim7_1ms_flag = 0;
 
 /* USER CODE END PV */
 
@@ -254,11 +274,116 @@ void USART3_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles UART4 global interrupt.
+  */
+void UART4_IRQHandler(void)
+{
+  /* USER CODE BEGIN UART4_IRQn 0 */
+	/*--------------------------------------------------------------------------------------------*/
+	/* RECEIVER ----------------------------------------------------------------------------------*/
+	/*--------------------------------------------------------------------------------------------*/
+	static unsigned char cnt = 0;
+
+	if(LL_USART_IsActiveFlag_RXNE(UART4))
+	{
+		//		LL_USART_ClearFlag_RXNE(USART6);					// FUNCTION NOT AVAILABLE
+
+		uart4_rx_data = LL_USART_ReceiveData8(UART4);
+		uart4_rx_flag = 1;
+
+		//		while(!LL_USART_IsActiveFlag_TXE(USART3));
+		//		LL_USART_TransmitData8(USART3, uart4_rx_data);		// Transmit TO PC
+
+#if IBUS_PROTO
+		switch(cnt)
+		{
+		case 0 :	if(uart4_rx_data == IBUS_PROTOCOL_LENGTH)
+		{ibus_rx_buffer[cnt++] = uart4_rx_data;}			break;
+
+		case 1 :	if(uart4_rx_data == IBUS_PROTOCOL_COMMAND40)
+		{ibus_rx_buffer[cnt++] = uart4_rx_data;}
+		else {cnt = 0;}										break;
+
+		case 31:	ibus_rx_buffer[cnt]    = uart4_rx_data;
+		cnt=0;
+		ibus_rx_complete_flag  = 1;							break;
+
+		default:	ibus_rx_buffer[cnt++]  = uart4_rx_data;			break;
+		}
+#endif
+
+#if CRSF_PROTO
+		switch(cnt)
+		{
+		case 0 :	if(uart4_rx_data == CRSF_ADDRESS_FLIGHT_CONTROLLER)
+		{crsf_rx_buffer[cnt++] = uart4_rx_data;}					break;
+
+		case 1 :	if(uart4_rx_data == CRSF_FRAME_LENGTH)
+		{crsf_rx_buffer[cnt++] = uart4_rx_data;}
+		else {cnt = 0;}												break;
+
+		case 25:	crsf_rx_buffer[cnt]    = uart4_rx_data;
+		cnt=0;
+		crsf_rx_complete_flag  = 1;									break;
+
+		default:	crsf_rx_buffer[cnt++]  = uart4_rx_data;			break;
+		}
+#endif
+
+#if SBUS_PROTO
+		switch(cnt)
+		{
+		case 0 :	if(uart4_rx_data == SBUS_HEADER)
+		{sbus_rx_buffer[cnt++] = uart4_rx_data;}					break;
+
+		case 24:	sbus_rx_buffer[cnt]    = uart4_rx_data;
+		cnt=0;
+		sbus_rx_complete_flag  = 1;									break;
+
+		default:	sbus_rx_buffer[cnt++]  = uart4_rx_data;			break;
+		}
+#endif
+
+	}
+
+  /* USER CODE END UART4_IRQn 0 */
+  /* USER CODE BEGIN UART4_IRQn 1 */
+
+  /* USER CODE END UART4_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM7 global interrupt.
+  */
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM7_IRQn 0 */
+	static unsigned char tim7_1ms_count = 0;
+	if(LL_TIM_IsActiveFlag_UPDATE(TIM7))
+	{
+		LL_TIM_ClearFlag_UPDATE(TIM7);
+
+		tim7_1ms_count++;
+		if(tim7_1ms_count == 1)
+		{
+			tim7_1ms_count = 0;
+			tim7_1ms_flag = 1;
+		}
+	}
+
+  /* USER CODE END TIM7_IRQn 0 */
+  /* USER CODE BEGIN TIM7_IRQn 1 */
+
+  /* USER CODE END TIM7_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART6 global interrupt.
   */
 void USART6_IRQHandler(void)
 {
   /* USER CODE BEGIN USART6_IRQn 0 */
+
 	/*--------------------------------------------------------------------------------------------*/
 	/* GPS ---------------------------------------------------------------------------------------*/
 	/*--------------------------------------------------------------------------------------------*/
@@ -272,7 +397,7 @@ void USART6_IRQHandler(void)
 		//		while(!LL_USART_IsActiveFlag_TXE(USART2));
 		//		LL_USART_TransmitData8(USART2, usart6_rx_data);		// Transmit TO DEBUG USART
 
-#if GPS1_PROTO == UBX_PROTO
+#if UBX_PROTO
 		switch(cnt)
 		{
 		case 0 :	if(usart6_rx_data == UBX_SYNC_CHAR_1)

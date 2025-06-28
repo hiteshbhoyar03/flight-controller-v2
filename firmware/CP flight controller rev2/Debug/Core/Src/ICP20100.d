@@ -40,6 +40,7 @@ Core/Src/ICP20100.o: ../Core/Src/ICP20100.c ../Core/Inc/ICP20100.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h
 ../Core/Inc/ICP20100.h:
@@ -85,5 +86,6 @@ Core/Src/ICP20100.o: ../Core/Src/ICP20100.c ../Core/Inc/ICP20100.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:

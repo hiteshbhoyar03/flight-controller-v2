@@ -40,6 +40,7 @@ Core/Src/ICM42688P.o: ../Core/Src/ICM42688P.c ../Core/Inc/ICM42688P.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h
 ../Core/Inc/ICM42688P.h:
@@ -85,5 +86,6 @@ Core/Src/ICM42688P.o: ../Core/Src/ICM42688P.c ../Core/Inc/ICM42688P.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:

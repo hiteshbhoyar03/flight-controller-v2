@@ -1,0 +1,10 @@
+../Core/Src/ekf_imu.c:15:13:normalize_quat	2
+../Core/Src/ekf_imu.c:20:13:quat_predict	1
+../Core/Src/ekf_imu.c:40:13:init_identity_matrix	2
+../Core/Src/ekf_imu.c:45:6:ekf_init	3
+../Core/Src/ekf_imu.c:52:6:ekf_predict	3
+../Core/Src/ekf_imu.c:59:6:ekf_update_accel	19
+../Core/Src/ekf_imu.c:132:6:get_quaternion	1
+../Core/Src/ekf_imu.c:139:6:quaternion_to_euler_deg	1
+../Core/Src/ekf_imu.c:151:6:quaternion_to_euler_rad	1
+../Core/Src/ekf_imu.c:159:6:quaternion_to_rotation_matrix	1

@@ -161,6 +161,11 @@ typedef struct _ICM42688P{
 	float gyro_x;
 	float gyro_y;
 	float gyro_z;
+
+	float roll;
+	float pitch;
+	float yaw;
+
 }Struct_ICM42688P;
 
 extern Struct_ICM42688P ICM42688P;

@@ -40,11 +40,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h \
+ ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h \
  ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h \
- ../Core/Inc/BMI088.h ../Core/Inc/main.h ../Core/Inc/ICM42688P.h \
- ../Core/Inc/ICM45686.h ../Core/Inc/MS5611.h ../Core/Inc/ICP20100.h \
- ../Core/Inc/M9N.h
+ ../Core/Inc/i2c.h ../Core/Inc/main.h ../Core/Inc/memorymap.h \
+ ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
+ ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h ../Core/Inc/BMI088.h \
+ ../Core/Inc/ICM42688P.h ../Core/Inc/ICM45686.h ../Core/Inc/MS5611.h \
+ ../Core/Inc/ICP20100.h ../Core/Inc/IBUS.h ../Core/Inc/CRSF.h \
+ ../Core/Inc/SBUS.h ../Core/Inc/M9N.h ../Core/Inc/PID.h \
+ ../Core/Inc/ekf_imu.h
 ../Core/Inc/main.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../Core/Inc/stm32h7xx_hal_conf.h:
@@ -87,12 +92,25 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dmamux.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_spi.h:
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usart.h:
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_gpio.h:
-../Core/Inc/BMI088.h:
+../Core/Inc/i2c.h:
 ../Core/Inc/main.h:
+../Core/Inc/memorymap.h:
+../Core/Inc/spi.h:
+../Core/Inc/tim.h:
+../Core/Inc/usart.h:
+../Core/Inc/usb_otg.h:
+../Core/Inc/gpio.h:
+../Core/Inc/BMI088.h:
 ../Core/Inc/ICM42688P.h:
 ../Core/Inc/ICM45686.h:
 ../Core/Inc/MS5611.h:
 ../Core/Inc/ICP20100.h:
+../Core/Inc/IBUS.h:
+../Core/Inc/CRSF.h:
+../Core/Inc/SBUS.h:
 ../Core/Inc/M9N.h:
+../Core/Inc/PID.h:
+../Core/Inc/ekf_imu.h:
