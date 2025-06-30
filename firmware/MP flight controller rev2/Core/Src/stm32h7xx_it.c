@@ -31,36 +31,29 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define IBUS_PROTO 	0
-#define CRSF_PROTO 	1
-#define SBUS_PROTO 	2
-#define RECEIVER_PROTO IBUS_PROTO		// SELECT RX PROTOCOL
 
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-#define UBX_SYNC_CHAR_1 				0xB5	// Every Message starts with 2 Bytes: 0xB5 0x62
-#define UBX_SYNC_CHAR_2 				0x62
-#define IBUS_PROTOCOL_LENGTH 			0x20 	// Length of packet
-#define IBUS_PROTOCOL_COMMAND40			0x40	// Command to set servo or motor speed is always 0x40
-#define CRSF_ADDRESS_FLIGHT_CONTROLLER 	0xC8
-#define CRSF_FRAME_LENGTH 				24 		// length of type + payload + crc
-#define SBUS_HEADER 					0x0F
+#define CP_MP_HEADER_BYTE1  0x39
+#define CP_MP_HEADER_BYTE2  0x69
 
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-uint8_t usart1_rx_flag = 0;		// DEBUG
-uint8_t usart1_rx_data = 0;		// DEBUG
+uint8_t usart1_rx_flag = 0;						// DEBUG
+uint8_t usart1_rx_data = 0;						// DEBUG
+uint8_t usart3_rx_flag = 0;						// Uart CP-MP
+uint8_t usart3_rx_data = 0;						// Uart CP-MP
 
-uint8_t ibus_rx_buffer[32];					// FLYSKY IBUS BUFFER
-uint8_t ibus_rx_complete_flag = 0;			// FLYSKY IBUS COMPLETE FLAG
-uint8_t crsf_rx_buffer[26];					// CRSF BUFFER
-uint8_t crsf_rx_complete_flag = 0;			// CRSF COMPLETE FLAG
-uint8_t sbus_rx_buffer[25];					// SBUS BUFFER
-uint8_t sbus_rx_complete_flag = 0;			// SBUS COMPLETE FLAG
+uint8_t cp_2_mp_rx_buffer[32];					// CP-MP
+uint8_t cp_2_mp_rx_complete_flag = 0;			// CP-MP
+
+uint8_t tim7_1000Hz_flag = 0;
+uint8_t tim7_2000Hz_flag = 0;
+uint8_t tim7_4000Hz_flag = 0;
 
 /* USER CODE END PV */
 
@@ -350,7 +343,32 @@ void USART2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
+	static unsigned char cnt = 0;
 
+	if(LL_USART_IsActiveFlag_RXNE(USART3))
+	{
+		usart3_rx_data = LL_USART_ReceiveData8(USART3);
+		usart3_rx_flag = 1;
+
+		//		while(!LL_USART_IsActiveFlag_TXE(USART1));
+		//		LL_USART_TransmitData8(USART1, usart3_rx_data);		// Transmit TO PC
+
+		switch(cnt)
+		{
+		case 0 :	if(usart3_rx_data == CP_MP_HEADER_BYTE1)
+		{cp_2_mp_rx_buffer[cnt++] = usart3_rx_data;}			break;
+
+		case 1 :	if(usart3_rx_data == CP_MP_HEADER_BYTE2)
+		{cp_2_mp_rx_buffer[cnt++] = usart3_rx_data;}
+		else {cnt = 0;}											break;
+
+		case 31:	cp_2_mp_rx_buffer[cnt]    = usart3_rx_data;
+		cnt=0;
+		cp_2_mp_rx_complete_flag = 1;							break;
+
+		default:	cp_2_mp_rx_buffer[cnt++]  = usart3_rx_data;	break;
+		}
+	}
   /* USER CODE END USART3_IRQn 0 */
   /* USER CODE BEGIN USART3_IRQn 1 */
 
@@ -368,6 +386,45 @@ void DMA1_Stream7_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Stream7_IRQn 1 */
 
   /* USER CODE END DMA1_Stream7_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM7 global interrupt.
+  */
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM7_IRQn 0 */
+	static unsigned char tim7_1ms_count = 0;
+	static unsigned char tim7_500us_count = 0;
+	static unsigned char tim7_250us_count = 0;
+	if(LL_TIM_IsActiveFlag_UPDATE(TIM7))
+	{
+		LL_TIM_ClearFlag_UPDATE(TIM7);
+
+		tim7_1ms_count++;
+		if(tim7_1ms_count == 4)
+		{
+			tim7_1ms_count = 0;
+			tim7_1000Hz_flag = 1;
+		}
+		tim7_500us_count++;
+		if(tim7_500us_count == 1)
+		{
+			tim7_500us_count = 0;
+			tim7_2000Hz_flag = 1;
+		}
+		tim7_250us_count++;
+		if(tim7_250us_count == 1)
+		{
+			tim7_250us_count = 0;
+			tim7_4000Hz_flag = 1;
+		}
+	}
+
+  /* USER CODE END TIM7_IRQn 0 */
+  /* USER CODE BEGIN TIM7_IRQn 1 */
+
+  /* USER CODE END TIM7_IRQn 1 */
 }
 
 /**

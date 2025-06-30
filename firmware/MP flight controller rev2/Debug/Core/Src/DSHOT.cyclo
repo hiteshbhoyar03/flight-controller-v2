@@ -2,6 +2,7 @@
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:511:22:LL_DMA_DisableStream	1
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:1051:22:LL_DMA_SetDataLength	1
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_dma.h:1804:22:LL_DMA_ConfigAddresses	2
+../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:1523:22:LL_TIM_EnableCounter	1
 ../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_tim.h:2058:22:LL_TIM_CC_EnableChannel	1
 ../Core/Src/DSHOT.c:34:6:Dshot_Init	3
 ../Core/Src/DSHOT.c:56:6:Dshot_Write	5
@@ -11,5 +12,5 @@
 ../Core/Src/DSHOT.c:170:13:TIM8_DMA_Configuration	1
 ../Core/Src/DSHOT.c:190:13:TIM5_DMA_Configuration	1
 ../Core/Src/DSHOT.c:231:13:dshot_start_pwm	1
-../Core/Src/DSHOT.c:245:17:dshot_prepare_packet	2
-../Core/Src/DSHOT.c:274:13:dshot_prepare_dmabuffer_all	4
+../Core/Src/DSHOT.c:246:17:dshot_prepare_packet	2
+../Core/Src/DSHOT.c:275:13:dshot_prepare_dmabuffer_all	4

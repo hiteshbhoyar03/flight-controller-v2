@@ -77,7 +77,9 @@ uint8_t crsf_rx_complete_flag = 0;			// CRSF COMPLETE FLAG
 uint8_t sbus_rx_buffer[25];					// SBUS BUFFER
 uint8_t sbus_rx_complete_flag = 0;			// SBUS COMPLETE FLAG
 
-uint8_t tim7_1ms_flag = 0;
+uint8_t tim7_1000Hz_flag = 0;
+uint8_t tim7_2000Hz_flag = 0;
+uint8_t tim7_4000Hz_flag = 0;
 
 /* USER CODE END PV */
 
@@ -286,8 +288,6 @@ void UART4_IRQHandler(void)
 
 	if(LL_USART_IsActiveFlag_RXNE(UART4))
 	{
-		//		LL_USART_ClearFlag_RXNE(USART6);					// FUNCTION NOT AVAILABLE
-
 		uart4_rx_data = LL_USART_ReceiveData8(UART4);
 		uart4_rx_flag = 1;
 
@@ -358,16 +358,31 @@ void UART4_IRQHandler(void)
 void TIM7_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM7_IRQn 0 */
+	//  interrupt is requested every 250us i.e. 4000Hz
 	static unsigned char tim7_1ms_count = 0;
+	static unsigned char tim7_500us_count = 0;
+	static unsigned char tim7_250us_count = 0;
 	if(LL_TIM_IsActiveFlag_UPDATE(TIM7))
 	{
 		LL_TIM_ClearFlag_UPDATE(TIM7);
 
 		tim7_1ms_count++;
-		if(tim7_1ms_count == 1)
+		if(tim7_1ms_count == 4)
 		{
 			tim7_1ms_count = 0;
-			tim7_1ms_flag = 1;
+			tim7_1000Hz_flag = 1;
+		}
+		tim7_500us_count++;
+		if(tim7_500us_count == 1)
+		{
+			tim7_500us_count = 0;
+			tim7_2000Hz_flag = 1;
+		}
+		tim7_250us_count++;
+		if(tim7_250us_count == 1)
+		{
+			tim7_250us_count = 0;
+			tim7_4000Hz_flag = 1;
 		}
 	}
 
