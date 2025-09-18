@@ -1,4 +1,4 @@
-# ✈️ Flight Controller Rev2
+# Flight Controller Rev2
 <p align="center">
 <img  width="39%" src="https://github.com/hiteshbhoyar03/flight-controller-v2/blob/main/gallery/flight%20controller%20rev2%20front.png">
 </p>
