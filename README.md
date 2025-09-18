@@ -11,11 +11,11 @@ The goal of this project is to simulate the development of a **complete flight c
 
 ---
 
-## 🧩 System Architecture
+##  System Architecture
 
 The board integrates **two STM32H753VI** ARM Cortex-M7 microcontrollers on a single 100mm × 76mm PCB, functioning as a **Main Processor** and **Co-Processor**, connected via UART and 8 shared GPIO lines.
 
-### 🔷 Main Processor Subsystem
+###  Main Processor Subsystem
 
 | Component          | Description                                                              |
 |--------------------|--------------------------------------------------------------------------|
@@ -30,7 +30,7 @@ The board integrates **two STM32H753VI** ARM Cortex-M7 microcontrollers on a sin
 
 ---
 
-### 🔷 Co-Processor Subsystem
+###  Co-Processor Subsystem
 
 | Component         | Description                                                               |
 |-------------------|---------------------------------------------------------------------------|
@@ -51,18 +51,18 @@ The board integrates **two STM32H753VI** ARM Cortex-M7 microcontrollers on a sin
 
 ---
 
-## 🔗 Processor Interconnect
+##  Processor Interconnect
 
 - **Primary Link**: UART (for high-speed, structured data exchange)
 - **Auxiliary Signals**: 8 bidirectional GPIO lines (handshake, interrupt, redundancy, sync)
 
 ---
 
-## 💻 Firmware Architecture
+##  Firmware Architecture
 
 Firmware development is underway using **STM32CubeIDE**, designed with a modular and layered approach:
 
-### ✅ Completed Modules:
+###  Completed Modules:
 - **Sensor Drivers**: All onboard sensors initialized and configured (BMI088, ICM series, barometers, magnetometer)
 - **GPS Parsing**: NEO-M9N GNSS interface fully functional
 - **PWM Protocols**:
@@ -77,43 +77,43 @@ Firmware development is underway using **STM32CubeIDE**, designed with a modular
 - **Sensor Bus**: SPI interface abstraction completed
 - **Configuration Handler**: EEPROM read/write layer implemented for persistent config
 
-### 🚧 In Progress:
+###  In Progress:
 - **Telemetry System**: Communication with GCS (Ground Control Station) via UART/USB
 - **PID Control**: Stabilization and navigation loops (attitude, rate, altitude)
 - **GCS Command Parsing**: MAVLink or custom command reception and execution
 
 ---
-## 🔧 Tools Used
+##  Tools Used
 
-- 🛠 **Altium Designer** – Schematic and PCB Layout  
-- 🔌 **STM32CubeIDE** – Embedded development
-- 🔌 **STM32CubeMX** – Peripheral and clock config  
-- 📦 **GitHub** – VersVersion control , documentation and project showcase
+-  **Altium Designer** – Schematic and PCB Layout  
+-  **STM32CubeIDE** – Embedded development
+-  **STM32CubeMX** – Peripheral and clock config  
+-  **GitHub** – VersVersion control , documentation and project showcase
 ---
 
-## 📐 Board Design Details
+##  Board Design Details
 - **Size**: 100mm × 76mm
 - **Stackup**: 4-layer PCB designed in **Altium Designer**
 - **Manufacturing**: No PCB fabrication — for simulation and demonstration only
 
 ---
 
-## 👤 Author
+##  Author
 
 **Hitesh Bhoyar**  
-📍 Embedded Systems | CubeSat Design | Low Power Electronics  
+ Embedded Systems | CubeSat Design | Low Power Electronics  
 [GitHub →](https://github.com/hiteshbhoyar03)
 > For educational use. Feel free to fork, reuse, or reach out if you are exploring embedded systems!
 
 ---
 
-## 📜 License
+##  License
 
 Licensed under the [MIT License](../LICENSE)
 
 ---
 
-## 🎯 Project Purpose
+##  Project Purpose
 
 An academic and portfolio project to:
 
