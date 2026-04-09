@@ -235,10 +235,10 @@ int main(void)
 
 #if DSHOT
 	Enable_Dshot_Channels(DSHOT_TYPE);
-	max_ccr = 0;
-	min_ccr = 2047;
+	max_ccr = 2047;
+	min_ccr = 0;
 	motor_offset = (max_ccr - min_ccr)/20;
-	throttle_multiplier = (max_ccr - min_ccr)/100;
+	throttle_multiplier = (max_ccr - min_ccr)/1000;
 
 #elif MULTISHOT
 	max_ccr = multishot_max_ccr;
